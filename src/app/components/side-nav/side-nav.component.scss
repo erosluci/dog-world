@@ -1,7 +1,7 @@
 .flex-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 10px;
 
     padding: 20px;
@@ -14,4 +14,22 @@
 
     justify-self: center;
     align-self: center;
+}
+
+i {
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.flex-box i {
+    cursor: pointer;
+    color: rgb(190, 189, 189);
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.flex-box i.selected {
+    color: white;
+    font-weight: bold;
 }

@@ -35,7 +35,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 })
 export class DogCollectionPageComponent implements OnInit {
 
-  private dogService = inject(DogService)
+  private _dogService = inject(DogService)
 
   protected dogs: Breed[] = [];
   protected error: string = "";
@@ -43,12 +43,12 @@ export class DogCollectionPageComponent implements OnInit {
   showFiller = false;
 
   ngOnInit(): void {
-    this.dogService.getBreeds().subscribe({
+    this._dogService.getBreeds().subscribe({
       next: (breeds) => {
         this.dogs = breeds;
         breeds.forEach(breed => {
           if (breed.reference_image_id) {
-            this.dogService.getImageById(breed.reference_image_id).subscribe({
+            this._dogService.getImageById(breed.reference_image_id).subscribe({
               next: (img) => breed.imageUrl = img.url
             });
           }

@@ -1,6 +1,7 @@
 <div class="flex-box">
-    <a href="#">Home</a>
-    <i class="fa-solid fa-grid"></i>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <i class="fa-regular fa-rectangle-list" [class.selected]="selectedIcon === 'list'"
+        (click)="selectIcon('list', '/main')"></i>
+
+    <i class="fa-regular fa-face-surprise" [class.selected]="selectedIcon === 'surprise'"
+        (click)="selectIcon('surprise', '/facts')"></i>
 </div>
