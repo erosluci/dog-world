@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<div class="app-container">
+    @if(username){
+    <app-header></app-header>
+    }
+    <div class="flex-box">
+        @if(username){
+        <app-side-nav></app-side-nav>
+        }
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DogCollectionPageComponent } from './components/dog-collection-page/dog-collection-page.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
     LoginPageComponent,
-    DogCollectionPageComponent
+    DogCollectionPageComponent,
+    SideNavComponent
   ],
   imports: [
     CommonModule,
-    FormGroup,
+    FormsModule,
     FontAwesomeModule
   ]
 })

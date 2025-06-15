@@ -1,0 +1,17 @@
+.app-container {
+    background-color: #f5f1e9;
+    height: 100%;
+}
+app-side-nav{
+    height: 100%;
+}
+
+.flex-box {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
