@@ -1,0 +1,33 @@
+<div class="doggo-container">
+  <header class="header">
+    <div class="flex-box">
+      <i class="fa-solid fa-paw"></i>
+      <div class="logo">Dog's World — ahol a kutyák nem csak kedvencek, hanem a legjobb barátok is! 🐾</div>
+    </div>
+    
+    <div class="flex-box">
+      <div class="user-info" *ngIf="username; else loginLink">
+        Üdv, {{ username | nameToUpper }}!
+      </div>
+      <div>
+        <button mat-raised-button color="primary" class="full-width" type="submit" (click)="logOut()">
+          Kijelentkezés
+        </button>
+      </div>
+    </div>
+
+    <ng-template #loginLink>
+      <a routerLink="/login" class="login-link">Bejelentkezés</a>
+    </ng-template>
+  </header>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="breed-container">
+    <div class="breed-card" *ngFor="let breed of dogs">
+      <h3>{{ breed.name }}</h3>
+      <img *ngIf="breed.imageUrl" [src]="breed.imageUrl" alt="{{ breed.name }}" />
+      <div *ngIf="!breed.imageUrl">Kép nem elérhető</div>
+    </div>
+  </div>
+</div>

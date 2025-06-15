@@ -1,0 +1,62 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); // kutyás kép (Unsplash)
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-card {
+  background: rgba(177, 136, 95, 0.9);
+  color: #fff;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  .mat-form-field-label {
+    color: #d7b899;
+  }
+
+  input.mat-input-element {
+    color: #fff;
+  }
+
+  .mat-form-field-ripple {
+    background-color: #d7b899;
+  }
+}
+
+button.full-width {
+  width: 100%;
+}
+
+.message {
+  margin-top: 1rem;
+  color: #f8bbd0;
+  text-align: center;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 0vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d7b899;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  z-index: 10;
+  white-space: nowrap;
+}
