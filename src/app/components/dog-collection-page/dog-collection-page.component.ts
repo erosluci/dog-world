@@ -36,7 +36,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 export class DogCollectionPageComponent implements OnInit {
 
   private dogService = inject(DogService)
-  private router = inject(Router)
 
   protected dogs: Breed[] = [];
   protected error: string = "";
@@ -67,10 +66,5 @@ export class DogCollectionPageComponent implements OnInit {
     } catch {
       return null;
     }
-  }
-
-  logOut(): void {
-    localStorage.removeItem("currentUser");
-    this.router.navigate(['/login']);
   }
 }

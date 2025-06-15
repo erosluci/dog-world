@@ -1,0 +1,18 @@
+<div class="header">
+    <div class="flex-box">
+        <i class="fa-solid fa-paw"></i>
+        <div class="logo">Dog's World — ahol a kutyák nem csak kedvencek, hanem a legjobb barátok is! 🐾</div>
+    </div>
+
+    <div class="flex-box">
+        <div class="user-info" *ngIf="username">
+            Üdv, {{ username | nameToUpper }}!
+        </div>
+        <div>
+            <button mat-raised-button color="primary" class="full-width" type="submit" (click)="logOut()">
+                Kijelentkezés
+            </button>
+        </div>
+    </div>
+
+</div>

@@ -1,59 +1,40 @@
+.doggo-container {
+  height: 800px;
+  overflow: auto;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+i {
+  font-size: 50px;
+}
+
+.display-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 :host {
   display: block;
   padding: 20px;
   background-color: #f5f1e9;
-  /* világos, pasztell háttér */
   color: #5d3a00;
-  /* barna szöveg */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Fejléc */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #8b5e3c;
-  /* sötétebb barna */
-  padding: 15px 30px;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .user-info {
-    font-style: italic;
-  }
-
-  .login-link {
-    color: #ffd88c;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-  }
-}
-
-/* Hibaüzenet */
 .error {
   margin: 15px 0;
   color: #b00020;
-  /* erős piros */
   font-weight: 700;
   text-align: center;
 }
 
-/* Fajták tároló */
 .breed-container {
   margin-top: 25px;
   display: grid;
@@ -61,10 +42,8 @@
   gap: 25px;
 }
 
-/* Egy-egy kutyafajta kártya */
 .breed-card {
   background-color: #a67c52;
-  /* világos barna */
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 4px 10px rgba(101, 67, 33, 0.4);
@@ -91,43 +70,20 @@
   }
 }
 
-/* Mobilra reszponzív (opcionális) */
-@media (max-width: 900px) {
-  .breed-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@media (max-width: 500px) {
-  .breed-container {
-    grid-template-columns: 1fr;
-  }
-
-  .header {
-    flex-direction: column;
-    text-align: center;
-
-    .user-info,
-    .login-link {
-      margin-top: 8px;
-    }
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.flex-box {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 3px;
+  border: none;
 }
 
-i {
-  font-size: 50px;
-}
-
-.display-box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(71, 71, 71, 0.4);
 }

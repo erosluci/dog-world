@@ -1,0 +1,17 @@
+.flex-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 20px;
+    background-color: #a67c52;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 44px;
+
+    height: 300px;
+
+    justify-self: center;
+    align-self: center;
+}
