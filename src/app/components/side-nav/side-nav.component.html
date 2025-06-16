@@ -2,6 +2,9 @@
     <i class="fa-regular fa-rectangle-list" [class.selected]="selectedIcon === 'list'"
         (click)="selectIcon('list', '/main')"></i>
 
+    <i class="fa-solid fa-dog" [class.selected]="selectedIcon === 'single'"
+        (click)="selectIcon('single', '/single')"></i>
+
     <i class="fa-regular fa-face-surprise" [class.selected]="selectedIcon === 'surprise'"
         (click)="selectIcon('surprise', '/facts')"></i>
 </div>

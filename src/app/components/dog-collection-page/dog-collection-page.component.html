@@ -1,12 +1,25 @@
 <div class="doggo-container">
 
-  <div *ngIf="error" class="error">{{ error }}</div>
+  @if(error){
+  <div class="error">{{ error }}</div>
+  }
 
   <div class="breed-container">
-    <div class="breed-card" *ngFor="let breed of dogs">
+
+    @for (breed of dogs; track breed; let i = $index) {
+    <div class="breed-card">
+
       <h3>{{ breed.name }}</h3>
-      <img *ngIf="breed.imageUrl" [src]="breed.imageUrl" alt="{{ breed.name }}" />
-      <div *ngIf="!breed.imageUrl">Kép nem elérhető</div>
+      @if(breed.imageUrl){
+      <img (click)="onImageClick(i, breed.imageUrl)" [src]="breed.imageUrl" alt="{{ breed.name }}" />
+      }
+      @if(!breed.imageUrl){
+      <div>Kép nem elérhető</div>
+      }
+
     </div>
+    }
+
   </div>
+
 </div>

@@ -1,1 +1,17 @@
-<p>single-dog-page works!</p>
+<div class="doggo-container">
+
+    <div class="doggo-stats">
+
+        bred_for: {{doggo.facts.bred_for}} |
+        life_span: {{doggo.facts.life_span}} |
+        origin: {{doggo.facts.origin}} |
+        height (cm): {{doggo.facts.height.metric}} |
+        name: {{doggo.facts.name}} |
+        temperament: {{doggo.facts.temperament}} |
+        weight (kg): {{doggo.facts.weight.metric}} |
+    </div>
+    <div class="doggo-pic">
+        <img [src]="doggo.imageUrl" />
+    </div>
+
+</div>

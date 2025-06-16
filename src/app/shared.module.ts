@@ -5,6 +5,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DogCollectionPageComponent } from './components/dog-collection-page/dog-collection-page.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
   imports: [
     CommonModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

@@ -1,33 +1,29 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Breed, DogService } from '../../services/dog-service';
+import { DogService } from '../../services/dog-service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIcon } from '@angular/material/icon';
-import { MatToolbar } from '@angular/material/toolbar';
-import { Router } from '@angular/router';
 import { currentUser } from '../../consts/consts';
-import { NameToUpperPipe } from '../../pipes/name-to-upper.pipe';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { Breed } from '../../interfaces/breed';
+import { Router } from '@angular/router';
+import { SingleDogItem } from '../../interfaces/single-dog-item';
 
 @Component({
   selector: 'app-dog-collection-page',
   standalone: true,
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    MatIcon,
-    MatToolbar,
-    NameToUpperPipe,
     MatSidenavModule
   ],
   templateUrl: './dog-collection-page.component.html',
@@ -36,13 +32,26 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 export class DogCollectionPageComponent implements OnInit {
 
   private _dogService = inject(DogService)
+  private _router = inject(Router)
 
   protected dogs: Breed[] = [];
   protected error: string = "";
 
-  showFiller = false;
-
   ngOnInit(): void {
+    this.setBreeds();
+  }
+
+  get username(): string | null {
+    const user = localStorage.getItem(currentUser);
+    if (!user) return null;
+    try {
+      return JSON.parse(user).username || null;
+    } catch {
+      return null;
+    }
+  }
+
+  private setBreeds(): void {
     this._dogService.getBreeds().subscribe({
       next: (breeds) => {
         this.dogs = breeds;
@@ -58,13 +67,14 @@ export class DogCollectionPageComponent implements OnInit {
     });
   }
 
-  get username(): string | null {
-    const user = localStorage.getItem(currentUser);
-    if (!user) return null;
-    try {
-      return JSON.parse(user).username || null;
-    } catch {
-      return null;
-    }
+  protected onImageClick(id: number, imageUrl: string) {
+    this._dogService.getSingeBreed(id).subscribe(facts => {
+      const doggo: SingleDogItem = {
+        imageUrl: imageUrl,
+        facts: facts
+      };
+
+      this._router.navigate(['/single'], { state: { doggo } });
+    });
   }
 }
